@@ -679,3 +679,9 @@ body.scrolled .home-page .cv-pick { display: flex; }
 .pn .t { display: grid; gap: 4px; }
 @media (hover: hover) and (pointer: fine) { .pn a:hover .t { color: var(--accent); } }
 @media (max-width: 599px) { .pn { grid-template-columns: 1fr; } .pn .next { text-align: left; } }
+
+/* Anterior · Galería · Siguiente */
+.pn { grid-template-columns: 1fr auto 1fr; align-items: center; }
+.pn .gal { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); padding: 0 var(--s3); text-align: center; }
+@media (hover: hover) and (pointer: fine) { .pn .gal:hover { color: var(--ink); } }
+@media (max-width: 599px) { .pn { grid-template-columns: 1fr auto 1fr; gap: var(--s3); } .pn .next { text-align: right; } .pn a { font-size: 13px; } }
