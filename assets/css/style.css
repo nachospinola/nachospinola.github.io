@@ -541,8 +541,18 @@ body { -webkit-tap-highlight-color: transparent; }   /* lo sustituyen nuestros e
 @media (pointer: coarse) { .home-body .cue { padding: 14px 16px; top: calc(100svh - 74px); } }
 
 /* ==== Barrita diagonal junto a FILM, PHOTO y los títulos de proyectos: al pasar el cursor se dibuja de abajo a arriba ==== */
-.cell4 .lbl::after, .work .cap::after { content: ""; display: inline-block; flex: none; width: 1px; height: 14px; margin-left: 12px; background: currentColor; transform-origin: 50% 100%; transform: rotate(24deg) scaleY(0); transition: transform var(--dur-enter) var(--ease-enter); }
+.cell4 .lbl::after, .work .cap::after { content: ""; display: inline-block; flex: none; width: 1px; height: 14px; margin-left: 12px; background: currentColor; transform-origin: 50% 100%; transform: rotate(24deg) scaleY(0); transition: transform var(--draw-dur) var(--draw-ease); }
 @media (hover: hover) and (pointer: fine) {
   .cell4:hover .lbl::after, .cell4:focus-visible .lbl::after, .work a:hover .cap::after, .work a:focus-visible .cap::after { transform: rotate(24deg) scaleY(1); }
 }
 @media (hover: none) { .work .cap::after { transform: rotate(24deg) scaleY(1); } }
+
+
+/* ==== Un solo gesto para todas las barritas: se dibujan de abajo a arriba, igual de lentas y suaves ==== */
+:root { --draw-dur: 560ms; --draw-ease: cubic-bezier(.35, .05, .2, 1); }
+.home-body[data-deco="slash"] .nm .d {
+  margin-left: 0; transform: rotate(24deg) scaleY(0); transform-origin: 50% 100%;
+  animation: draw-up var(--draw-dur) var(--draw-ease) .95s forwards;
+}
+@keyframes draw-up { to { transform: rotate(24deg) scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { .home-body[data-deco="slash"] .nm .d { transform: rotate(24deg) scaleY(1); } }
