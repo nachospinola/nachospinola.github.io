@@ -669,3 +669,4 @@ body.scrolled .home-page .cv-pick { display: flex; }
 /* Contact: el pie no debe empujar el contenido hacia arriba (así "Hablemos." no choca con el nombre) */
 .content:has(.contact) { padding-bottom: 0; }
 .content:has(.contact) > .foot { padding-top: 0; padding-bottom: var(--s6); }
+.foot { text-align: center; }
