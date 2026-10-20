@@ -665,3 +665,7 @@ body.scrolled .home-page .cv-pick { display: flex; }
 /* Pie de página discreto */
 .foot { font-size: 11px; letter-spacing: .08em; color: rgba(28,27,25,.55); padding-top: var(--s16); text-align: left; width: 100%; }
 .content > .foot, .content.wide > .foot { justify-self: stretch; }
+
+/* Contact: el pie no debe empujar el contenido hacia arriba (así "Hablemos." no choca con el nombre) */
+.content:has(.contact) { padding-bottom: 0; }
+.content:has(.contact) > .foot { padding-top: 0; padding-bottom: var(--s6); }
