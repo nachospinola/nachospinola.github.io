@@ -9,7 +9,7 @@
 
 <link rel="alternate" hreflang="es" href="/es/film/">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1792494520558">
+<link rel="stylesheet" href="/assets/css/style.css?v=1792494960135">
 </head>
 <body>
 <div class="page">
@@ -36,7 +36,8 @@
 </main>
 </div>
 <script>(function(){var f=document.querySelector("iframe[data-base]");if(!f)return;
-function go(){var m=!(navigator.userActivation&&navigator.userActivation.hasBeenActive);f.src=f.dataset.base+"&autoplay=1&muted="+(m?1:0);f.removeAttribute("data-base")}
+function unmute(){try{f.contentWindow.postMessage(JSON.stringify({method:"setMuted",value:false}),"*");f.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:1}),"*")}catch(e){}}
+function go(){var act=navigator.userActivation&&navigator.userActivation.hasBeenActive;f.src=f.dataset.base+"&autoplay=1&muted=1&playsinline=1&api=1";f.removeAttribute("data-base");if(act)f.addEventListener("load",function(){setTimeout(unmute,900)},{once:true})}
 if(!("IntersectionObserver" in window)){go();return}var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){go();o.disconnect()}});o.observe(f)})();</script>
 </body>
 </html>
