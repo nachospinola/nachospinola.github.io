@@ -692,3 +692,4 @@ body.scrolled .home-page .cv-pick { display: flex; }
 .about .prose .dash { display: block; width: 1px; height: 28px; background: var(--accent); transform: rotate(24deg); margin: var(--s2) 0 var(--s2) var(--s3); }
 .about .prose p { font-size: 14px; line-height: 1.6; }
 .about .prose h1 { font-size: clamp(22px, 2vw, 28px); color: var(--accent); }
+.about .prose h1 { font-size: clamp(19px, 1.6vw, 23px); }
