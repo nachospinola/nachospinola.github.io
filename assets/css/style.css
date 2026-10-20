@@ -564,3 +564,34 @@ body { -webkit-tap-highlight-color: transparent; }   /* lo sustituyen nuestros e
 .home-body .nm .r2 .ch { animation-delay: .22s; }
 @keyframes rise-in { from { transform: translateY(120%); } to { transform: none; } }
 .home-body[data-deco="slash"] .nm .d { animation-delay: .85s; }
+
+
+/* ==== Contact: titular enorme, tres enlaces grandes y un collage de fotos y vídeo ==== */
+.contact { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--s16); width: 100%; max-width: 1200px; align-items: center; }
+.c-title { margin: 0; font-size: clamp(56px, 9.5vw, 156px); font-weight: 400; line-height: .88; letter-spacing: -.05em; color: var(--accent); }
+.c-sub { margin: var(--s6) 0 0; max-width: 34ch; font-size: 16px; line-height: 1.5; }
+.c-links { list-style: none; margin: var(--s12) 0 0; padding: 0; border-top: 1px solid rgba(28, 27, 25, .22); }
+.c-links a { display: grid; grid-template-columns: 112px 1fr auto; align-items: baseline; gap: var(--s4); padding: var(--s4) 0; border-bottom: 1px solid rgba(28, 27, 25, .22); }
+.c-links .k { font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); }
+.c-links .v { font-size: clamp(18px, 2.1vw, 30px); letter-spacing: -.015em; overflow-wrap: anywhere; transition: color var(--dur-enter) ease; }
+.c-links .sl { width: 1px; height: 16px; background: var(--accent); transform-origin: 50% 100%; transform: rotate(24deg) scaleY(0); transition: transform var(--draw-dur) var(--draw-ease); align-self: center; }
+@media (hover: hover) and (pointer: fine) {
+  .c-links a:hover .v, .c-links a:focus-visible .v { color: var(--accent); }
+  .c-links a:hover .sl, .c-links a:focus-visible .sl { transform: rotate(24deg) scaleY(1); }
+}
+@media (hover: none) { .c-links .sl { transform: rotate(24deg) scaleY(1); } }
+
+.c-collage { position: relative; aspect-ratio: 4 / 5; width: 100%; }
+.c-collage img { position: absolute; object-fit: cover; border: 8px solid var(--bg); box-sizing: content-box; }
+.c-collage .a { left: 0; top: 0; width: 58%; aspect-ratio: 3 / 4; }
+.c-collage .b { right: -8px; top: 22%; width: 52%; aspect-ratio: 3 / 4; z-index: 2; }
+.c-collage .c { left: 12%; bottom: -8px; width: 50%; aspect-ratio: 4 / 5; z-index: 3; filter: grayscale(1) contrast(1.05); }
+@media (max-width: 899px) {
+  .contact { grid-template-columns: 1fr; gap: var(--s12); }
+  .c-collage { max-width: 440px; margin-inline: auto; }
+  .c-links a { grid-template-columns: 1fr auto; }
+  .c-links .k { grid-column: 1 / -1; }
+}
+
+/* El nombre grande del menú ocupa el lado izquierdo: dejamos aire para que no tape los datos de contacto */
+@media (min-width: 900px) { .contact { padding-left: 8vw; } }
