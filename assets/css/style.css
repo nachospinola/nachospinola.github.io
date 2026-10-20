@@ -556,3 +556,11 @@ body { -webkit-tap-highlight-color: transparent; }   /* lo sustituyen nuestros e
 }
 @keyframes draw-up { to { transform: rotate(24deg) scaleY(1); } }
 @media (prefers-reduced-motion: reduce) { .home-body[data-deco="slash"] .nm .d { transform: rotate(24deg) scaleY(1); } }
+
+
+/* ==== Entrada del nombre: cada línea SUBE de abajo a arriba desde detrás de una máscara (mismo gesto, tiempo y curva que las barritas) ==== */
+.home-body .nm a .r1, .home-body .nm a .r2 { display: block; overflow: hidden; padding-top: .45em; margin-top: -.45em; }
+.home-body .nm .ch { display: inline-block; transform: translateY(120%); animation: rise-in var(--draw-dur) var(--draw-ease) .1s both; }
+.home-body .nm .r2 .ch { animation-delay: .22s; }
+@keyframes rise-in { from { transform: translateY(120%); } to { transform: none; } }
+.home-body[data-deco="slash"] .nm .d { animation-delay: .85s; }
