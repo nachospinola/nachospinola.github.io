@@ -700,3 +700,20 @@ body.scrolled .home-page .cv-pick { display: flex; }
 .reel-play .tri { position: absolute; left: 50%; top: 50%; width: 0; height: 0; margin: -22px 0 0 -14px; border-left: 36px solid #fff; border-top: 22px solid transparent; border-bottom: 22px solid transparent; opacity: .92; transition: transform .3s ease; }
 @media (hover: hover) and (pointer: fine) { .reel-play:hover img { transform: scale(1.02); filter: brightness(.9); } .reel-play:hover .tri { transform: scale(1.1); } }
 .reel-play:active .tri { transform: scale(.94); }
+
+/* Film: clip corto en bucle al pasar el cursor (solo con ratón) */
+.work .ph video.clip, .cell4 .ph video.clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .45s ease; pointer-events: none; }
+.work .ph video.clip.on, .cell4 .ph video.clip.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .work .ph video.clip, .cell4 .ph video.clip, .ph img.seq { display: none; } }
+
+/* PHOTO: al pasar el cursor, fotos del proyecto por CORTE (sin fundido), en blanco y negro como la foto de portada */
+.ph img.seq { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; filter: grayscale(1); transform: none; transition: none !important; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { .work a:hover .ph[data-seq] img:not(.seq), .cell4:hover .ph[data-seq] img:not(.seq) { transform: none; } }
+
+/* PHOTO pase: NINGÚN cambio de escala (ni zoom del hover ni salto entre foto y foto) */
+.ph[data-seq] img, .ph[data-seq] img.seq { transform: none !important; transition: none !important; }
+.ph[data-seq] img:not(.seq) { transition: filter .3s ease !important; }
+
+/* Film: sin símbolo de play en las tarjetas (solo el reel lo lleva) y sin zoom en las tarjetas con clip (para no notar cambio de escala) */
+.work.vfilm .ph::before { content: none !important; }
+.work a:hover .ph:has(video.clip) img, .cell4:hover .ph:has(video.clip) img { transform: none !important; transition: filter .3s ease !important; }
