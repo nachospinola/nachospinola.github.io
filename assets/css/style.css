@@ -693,3 +693,10 @@ body.scrolled .home-page .cv-pick { display: flex; }
 .about .prose p { font-size: 14px; line-height: 1.6; }
 .about .prose h1 { font-size: clamp(22px, 2vw, 28px); color: var(--accent); }
 .about .prose h1 { font-size: clamp(19px, 1.6vw, 23px); }
+
+/* Reel: portada con botón de play (no se reproduce solo) */
+.reel-play { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: #000; cursor: pointer; }
+.reel-play img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s ease, filter .4s ease; }
+.reel-play .tri { position: absolute; left: 50%; top: 50%; width: 0; height: 0; margin: -22px 0 0 -14px; border-left: 36px solid #fff; border-top: 22px solid transparent; border-bottom: 22px solid transparent; opacity: .92; transition: transform .3s ease; }
+@media (hover: hover) and (pointer: fine) { .reel-play:hover img { transform: scale(1.02); filter: brightness(.9); } .reel-play:hover .tri { transform: scale(1.1); } }
+.reel-play:active .tri { transform: scale(.94); }
