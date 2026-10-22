@@ -769,3 +769,8 @@ body.scrolled .home-page .cv-pick { display: flex; }
 .proj-frames { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6); }
 .proj-frames img { width: 100%; height: auto; display: block; background: #000; }
 @media (max-width: 599px) { .proj-frames { grid-template-columns: 1fr; } }
+
+/* Vídeos con franjas negras dentro del propio vídeo (Vimeo no las puede quitar): la caja tiene la proporción de la imagen real ("ratio" en
+   content/film-text.json) y el reproductor, que es 16:9, se coloca centrado y más alto que la caja, de modo que las franjas quedan recortadas. */
+.embed.pano { position: relative; }
+.embed.pano iframe { position: absolute; left: 0; top: 50%; height: calc(var(--k) * 100%); transform: translateY(-50%) scale(1.012); }
