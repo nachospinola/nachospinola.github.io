@@ -696,9 +696,9 @@ body.scrolled .home-page .cv-pick { display: flex; }
 
 /* Reel: portada con botón de play (no se reproduce solo) */
 .reel-play { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: #000; cursor: pointer; }
-.reel-play img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s ease, filter .4s ease; }
+.reel-play img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 2s ease, filter .6s ease; }
 .reel-play .tri { position: absolute; left: 50%; top: 50%; width: 0; height: 0; margin: -22px 0 0 -14px; border-left: 36px solid #fff; border-top: 22px solid transparent; border-bottom: 22px solid transparent; opacity: .92; transition: transform .3s ease; }
-@media (hover: hover) and (pointer: fine) { .reel-play:hover img { transform: scale(1.02); filter: brightness(.9); } .reel-play:hover .tri { transform: scale(1.1); } }
+@media (hover: hover) and (pointer: fine) { .reel-play:hover img { transform: scale(1.008); filter: brightness(.93); } .reel-play:hover .tri { transform: scale(1.04); } }
 .reel-play:active .tri { transform: scale(.94); }
 
 /* Film: clip corto en bucle al pasar el cursor (solo con ratón) */
@@ -717,3 +717,31 @@ body.scrolled .home-page .cv-pick { display: flex; }
 /* Film: sin símbolo de play en las tarjetas (solo el reel lo lleva) y sin zoom en las tarjetas con clip (para no notar cambio de escala) */
 .work.vfilm .ph::before { content: none !important; }
 .work a:hover .ph:has(video.clip) img, .cell4:hover .ph:has(video.clip) img { transform: none !important; transition: filter .3s ease !important; }
+
+/* Proyecto de FILM con ficha: título enorme, vídeo a todo el ancho (hasta el borde derecho) y debajo frase grande + texto + ficha */
+.proj { width: 100%; max-width: 1560px; display: grid; gap: var(--s8); }
+.proj-head { display: grid; gap: var(--s4); }
+.proj .meta { color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; }
+.proj h1 { font-size: clamp(44px, 7vw, 120px); font-weight: 400; letter-spacing: -.045em; line-height: .92; }
+.proj h1 .sub { display: block; margin-top: .12em; color: var(--accent); font-size: .5em; letter-spacing: -.03em; line-height: 1; }
+.proj-body { display: grid; gap: var(--s10); }
+.proj .embed { max-width: none; }
+.proj-text { display: grid; gap: var(--s8); }
+.proj .lead { font-size: clamp(21px, 2.3vw, 34px); line-height: 1.14; letter-spacing: -.02em; }
+.proj-cols { display: grid; gap: var(--s6); align-content: start; font-size: 15px; line-height: 1.6; max-width: 46ch; }
+.facts { display: grid; margin: var(--s2) 0 0; }
+.facts > div { display: grid; grid-template-columns: 9em 1fr; gap: var(--s4); padding: var(--s3) 0; border-top: 1px solid rgba(28, 27, 25, .14); }
+.facts > div:last-child { border-bottom: 1px solid rgba(28, 27, 25, .14); }
+.facts dt { color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; align-self: center; }
+.facts dd { margin: 0; font-size: 14px; }
+/* "Más información": la barrita diagonal se dibuja al pasar el cursor (siempre visible en táctil), como en FILM / PHOTO */
+.proj .more { justify-self: start; display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; }
+.proj .more::after { content: ""; flex: none; width: 1px; height: 14px; margin-left: 12px; background: currentColor; transform-origin: 50% 100%; transform: rotate(24deg) scaleY(0); transition: transform var(--draw-dur) var(--draw-ease); }
+@media (hover: hover) and (pointer: fine) { .proj .more:hover::after, .proj .more:focus-visible::after { transform: rotate(24deg) scaleY(1); } }
+@media (hover: none) { .proj .more::after { transform: rotate(24deg) scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { .proj .more::after { transition: none; } }
+@media (min-width: 900px) {
+  .proj-body { margin-left: 4vw; margin-right: calc(var(--s8) * -1); } /* separado del nombre grande de la barra lateral y hasta el borde derecho */
+  .proj-text { grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: var(--s16); padding-right: var(--s8); align-items: start; }
+}
+.content > .proj + .pn { max-width: 1560px; }
