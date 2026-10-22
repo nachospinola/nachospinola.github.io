@@ -745,3 +745,10 @@ body.scrolled .home-page .cv-pick { display: flex; }
   .proj-text { grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: var(--s16); padding-right: var(--s8); align-items: start; }
 }
 .content > .proj + .pn { max-width: 1560px; }
+
+/* Organización con enlace: la barrita diagonal siempre visible, para que se note que se puede pulsar */
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.facts a.ext { display: inline; color: var(--ink); text-decoration: none; }
+.facts a.ext::after { content: ""; display: inline-block; vertical-align: -2px; width: 1px; height: 12px; margin-left: 10px; background: var(--accent); transform: rotate(24deg); transition: height var(--draw-dur) var(--draw-ease); }
+@media (hover: hover) and (pointer: fine) { .facts a.ext:hover { color: var(--accent); } .facts a.ext:hover::after { height: 18px; } }
+@media (prefers-reduced-motion: reduce) { .facts a.ext::after { transition: none; } }
