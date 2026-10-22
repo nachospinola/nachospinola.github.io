@@ -719,19 +719,19 @@ body.scrolled .home-page .cv-pick { display: flex; }
 .work a:hover .ph:has(video.clip) img, .cell4:hover .ph:has(video.clip) img { transform: none !important; transition: filter .3s ease !important; }
 
 /* Proyecto de FILM con ficha: título enorme, vídeo a todo el ancho (hasta el borde derecho) y debajo frase grande + texto + ficha */
-.proj { width: 100%; max-width: 1560px; display: grid; gap: var(--s8); }
+.proj { width: 100%; max-width: 1560px; display: grid; gap: calc(var(--s8) * 1.15); }
 .proj-head { display: grid; gap: var(--s4); }
 .proj .meta { color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; }
 .proj h1 { font-size: clamp(44px, 7vw, 120px); font-weight: 400; letter-spacing: -.045em; line-height: .92; }
 .proj h1 .sub { display: block; margin-top: .12em; color: var(--accent); font-size: .5em; letter-spacing: -.03em; line-height: 1; }
-.proj-body { display: grid; gap: var(--s10); }
+.proj-body { display: grid; gap: calc(var(--s10) * 1.15); }
 .proj .embed { max-width: none; }
-.proj-text { display: grid; gap: var(--s8); }
+.proj-text { display: grid; gap: calc(var(--s8) * 1.15); }
 .proj .lead { font-size: clamp(21px, 2.3vw, 34px); line-height: 1.14; letter-spacing: -.02em; }
-.proj-cols { display: grid; gap: var(--s6); align-content: start; font-size: 15px; line-height: 1.6; max-width: 46ch; }
+.proj-cols { display: grid; gap: var(--s6); align-content: start; font-size: 15px; line-height: 1.6; }
 .facts { display: grid; margin: var(--s2) 0 0; }
-.facts > div { display: grid; grid-template-columns: 9em 1fr; gap: var(--s4); padding: var(--s3) 0; border-top: 1px solid rgba(28, 27, 25, .14); }
 .facts > div:last-child { border-bottom: 1px solid rgba(28, 27, 25, .14); }
+.facts > div { display: grid; grid-template-columns: 9em 1fr; gap: var(--s4); padding: var(--s3) 0; border-top: 1px solid rgba(28, 27, 25, .14); }
 .facts dt { color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; align-self: center; }
 .facts dd { margin: 0; font-size: 14px; }
 /* "Más información": la barrita diagonal se dibuja al pasar el cursor (siempre visible en táctil), como en FILM / PHOTO */
@@ -741,8 +741,8 @@ body.scrolled .home-page .cv-pick { display: flex; }
 @media (hover: none) { .proj .more::after { transform: rotate(24deg) scaleY(1); } }
 @media (prefers-reduced-motion: reduce) { .proj .more::after { transition: none; } }
 @media (min-width: 900px) {
-  .proj-body { margin-left: 4vw; margin-right: calc(var(--s8) * -1); } /* separado del nombre grande de la barra lateral y hasta el borde derecho */
-  .proj-text { grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: var(--s16); padding-right: var(--s8); align-items: start; }
+  .proj-body { margin-left: 4vw; } /* separado del nombre grande de la barra lateral; vídeo, texto, ficha y vídeos extra comparten el mismo borde derecho */
+  .proj-text { grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: var(--s16); align-items: start; }
 }
 .content > .proj + .pn { max-width: 1560px; }
 
@@ -752,3 +752,9 @@ body.scrolled .home-page .cv-pick { display: flex; }
 .facts a.ext::after { content: ""; display: inline-block; vertical-align: -2px; width: 1px; height: 12px; margin-left: 10px; background: var(--accent); transform: rotate(24deg); transition: height var(--draw-dur) var(--draw-ease); }
 @media (hover: hover) and (pointer: fine) { .facts a.ext:hover { color: var(--accent); } .facts a.ext:hover::after { height: 18px; } }
 @media (prefers-reduced-motion: reduce) { .facts a.ext::after { transition: none; } }
+
+/* Vídeos extra del proyecto: uno al lado del otro y más pequeños */
+.proj-extra { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6); }
+.xv { margin: 0; }
+.xv figcaption { margin-top: var(--s3); color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; }
+@media (max-width: 599px) { .proj-extra { grid-template-columns: 1fr; } }
