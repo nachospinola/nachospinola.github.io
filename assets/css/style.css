@@ -758,3 +758,8 @@ body.scrolled .home-page .cv-pick { display: flex; }
 .xv { margin: 0; }
 .xv figcaption { margin-top: var(--s3); color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; }
 @media (max-width: 599px) { .proj-extra { grid-template-columns: 1fr; } }
+
+/* Fotogramas de referencia bajo el texto: 4 imágenes (2x2) con el ancho del vídeo principal, como si fueran 4 vídeos */
+.proj-frames { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6); }
+.proj-frames img { width: 100%; height: auto; display: block; background: #000; }
+@media (max-width: 599px) { .proj-frames { grid-template-columns: 1fr; } }
