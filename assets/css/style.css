@@ -746,11 +746,12 @@ body.scrolled .home-page .cv-pick { display: flex; }
 }
 .content > .proj + .pn { max-width: 1560px; }
 
-/* Organización con enlace: la barrita diagonal siempre visible, para que se note que se puede pulsar */
+/* Organización con enlace: la barrita diagonal se dibuja al pasar el cursor (siempre visible en táctil, donde no hay cursor) */
 .vh { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .facts a.ext { display: inline; color: var(--ink); text-decoration: none; }
-.facts a.ext::after { content: ""; display: inline-block; vertical-align: -2px; width: 1px; height: 12px; margin-left: 10px; background: var(--accent); transform: rotate(24deg); transition: height var(--draw-dur) var(--draw-ease); }
-@media (hover: hover) and (pointer: fine) { .facts a.ext:hover { color: var(--accent); } .facts a.ext:hover::after { height: 18px; } }
+.facts a.ext::after { content: ""; display: inline-block; vertical-align: -2px; width: 1px; height: 14px; margin-left: 10px; background: var(--accent); transform-origin: 50% 100%; transform: rotate(24deg) scaleY(0); transition: transform var(--draw-dur) var(--draw-ease); }
+@media (hover: hover) and (pointer: fine) { .facts a.ext:hover { color: var(--accent); } .facts a.ext:hover::after, .facts a.ext:focus-visible::after { transform: rotate(24deg) scaleY(1); } }
+@media (hover: none) { .facts a.ext::after { transform: rotate(24deg) scaleY(1); } }
 @media (prefers-reduced-motion: reduce) { .facts a.ext::after { transition: none; } }
 
 /* Vídeos extra del proyecto: uno al lado del otro y más pequeños */
