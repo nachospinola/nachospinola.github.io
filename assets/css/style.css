@@ -803,3 +803,8 @@ html.brand-done .has-compact .side .brand { animation: none; }
 .vposter iframe { position: absolute; inset: 0; }
 .vposter .reel-play.loading .tri { opacity: 0; transition: opacity .25s ease; }
 .vposter .reel-play.loading { cursor: progress; }
+
+/* Film: al pasar el cursor se salta DIRECTAMENTE al clip (sin poner antes la foto en blanco y negro): la foto se queda a color y el vídeo entra casi de golpe */
+.work a:hover .ph:has(video.clip) img, .work a:focus-visible .ph:has(video.clip) img, .cell4:hover .ph:has(video.clip) img { filter: none !important; }
+.work .ph video.clip, .cell4 .ph video.clip { transition: opacity .3s ease; }
+.work .ph video.clip.on, .cell4 .ph video.clip.on { transition: opacity .08s linear; }
