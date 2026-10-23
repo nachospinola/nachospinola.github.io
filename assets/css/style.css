@@ -797,3 +797,9 @@ body.scrolled .home-page .cv-pick { display: flex; }
 @media (prefers-reduced-motion: reduce) { .has-compact .side .brand { animation: none; } }
 
 html.brand-done .has-compact .side .brand { animation: none; }
+
+/* Video poster: el reproductor se carga ENCIMA de la imagen (invisible) y solo se muestra cuando el vídeo ya está en marcha; mientras tanto se ve la portada, sin saltos a blanco */
+.vposter { position: relative; }
+.vposter iframe { position: absolute; inset: 0; }
+.vposter .reel-play.loading .tri { opacity: 0; transition: opacity .25s ease; }
+.vposter .reel-play.loading { cursor: progress; }
