@@ -9,7 +9,7 @@
 
 <link rel="alternate" hreflang="es" href="/es/film/street-soccer-andy-s-story/">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1792743656342">
+<link rel="stylesheet" href="/assets/css/style.css?v=1792743789596">
 <script>try{var r=document.referrer,m=r&&r.indexOf(location.origin)===0?r.slice(location.origin.length):"";if(/^\/(es|en)\/film\/[^\/]+\//.test(m))document.documentElement.classList.add("brand-done")}catch(e){}</script>
 </head>
 <body class="has-compact">
@@ -23,7 +23,7 @@
 <article class="proj">
   <header class="proj-head"><p class="meta">Glasgow, Scotland / Nagpur, India</p><h1>Street Soccer<span class="sub">Stories</span></h1></header>
   <div class="proj-body">
-    <div class="embed"><iframe onload="var f=this;setTimeout(function(){f.classList.add('on')},350)" src="https://player.vimeo.com/video/390707755?dnt=1" title="Street Soccer: Stories" allow="fullscreen; picture-in-picture"></iframe></div>
+    <div class="embed vposter" data-id="390707755" data-title="Street Soccer: Stories"><button class="reel-play" type="button" aria-label="Play the video"><img src="/assets/img/film/clips/390707755-cover.jpg" alt="" width="1280" height="720"><span class="tri" aria-hidden="true"></span></button></div>
     <div class="proj-text">
       <p class="lead">Behind every player there is a story you can't always see from the stands. Andy's, Tyler's and Carol's are stories of difficult moments, of overcoming and of starting over. Three very different lives that found in football something more than a sport.</p>
       <div class="proj-cols"><p>Three documentary portraits for Street Soccer Scotland, an organization that uses football as a tool for social inclusion. Through their testimonies, we get to know their personal stories, the hardest moments they have been through and how they have found in sport and in their teammates a way to keep going. My job was to approach them with trust, listen without judging and let them tell their stories in their own words.</p><dl class="facts"><div><dt>Location</dt><dd>Glasgow, Scotland / Nagpur, India</dd></div><div><dt>Organization</dt><dd><a class="ext" href="https://www.streetsoccerscotland.org" target="_blank" rel="noopener">Street Soccer Scotland<span class="vh"> (opens in a new tab)</span></a></dd></div><div><dt>Length</dt><dd>2'</dd></div></dl></div>
@@ -36,5 +36,6 @@
 <footer class="foot">© 2026 Nacho Spínola · All rights reserved</footer>
 </main>
 </div>
+<script>(function(){document.querySelectorAll(".vposter").forEach(function(b){var btn=b.querySelector(".reel-play");if(!btn)return;btn.addEventListener("click",function(){var f=document.createElement("iframe");f.src="https://player.vimeo.com/video/"+b.dataset.id+"?dnt=1&autoplay=1&playsinline=1";f.title=b.dataset.title;f.allow="autoplay; fullscreen; picture-in-picture";f.onload=function(){setTimeout(function(){f.classList.add("on")},350)};b.replaceChild(f,btn)})})})();</script>
 </body>
 </html>
