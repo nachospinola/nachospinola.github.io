@@ -808,3 +808,6 @@ html.brand-done .has-compact .side .brand { animation: none; }
 .work a:hover .ph:has(video.clip) img, .work a:focus-visible .ph:has(video.clip) img, .cell4:hover .ph:has(video.clip) img { filter: none !important; }
 .work .ph video.clip, .cell4 .ph video.clip { transition: opacity .3s ease; }
 .work .ph video.clip.on, .cell4 .ph video.clip.on { transition: opacity .08s linear; }
+
+/* Sesiones de PHOTO con el diseño de los proyectos de FILM: nombre grande arriba y solo las fotos */
+.proj-body .book { padding-top: 0; max-width: none; }
