@@ -9,7 +9,7 @@
 
 <link rel="alternate" hreflang="en" href="/en/film/homeless-world-cup-2019-uefa-s-respect-day/">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1792744359123">
+<link rel="stylesheet" href="/assets/css/style.css?v=1792744691052">
 <script>try{var r=document.referrer,m=r&&r.indexOf(location.origin)===0?r.slice(location.origin.length):"";if(/^\/(es|en)\/film\/[^\/]+\//.test(m))document.documentElement.classList.add("brand-done")}catch(e){}</script>
 </head>
 <body class="has-compact">
@@ -23,18 +23,28 @@
 <article class="proj">
   <header class="proj-head"><p class="meta">Varios países</p><h1>Homeless World Cup<span class="sub">Equal Game</span></h1></header>
   <div class="proj-body">
-    <div class="embed"><iframe onload="var f=this;setTimeout(function(){f.classList.add('on')},350)" src="https://player.vimeo.com/video/390699654?dnt=1" title="Homeless World Cup: Equal Game" allow="fullscreen; picture-in-picture"></iframe></div>
+    <div class="embed vposter" data-id="390699654" data-title="Homeless World Cup: Equal Game"><button class="reel-play" type="button" aria-label="Reproducir el vídeo"><img src="/assets/img/film/clips/390699654.jpg" alt="" width="1280" height="720"><span class="tri" aria-hidden="true"></span></button></div>
     <div class="proj-text">
       <p class="lead">Cuando el balón empieza a rodar, las diferencias desaparecen. Porque a veces, el fútbol es mucho más que un juego.</p>
       <div class="proj-cols"><p>El Mundial de Fútbol de Personas sin Hogar es un movimiento global que utiliza el fútbol como herramienta de cambio social. Cada año, a través de Equal Game, una iniciativa desarrollada en colaboración con UEFA, me enfrenté al reto de crear un spot capaz de capturar el espíritu del Mundial y la capacidad del deporte para unir a personas de distintos orígenes, culturas, religiones y géneros. Una pieza que, a través del lenguaje del fútbol, mostrara todo aquello que nos une por encima de nuestras diferencias.</p><dl class="facts"><div><dt>Lugar</dt><dd>Varios países</dd></div><div><dt>Organización</dt><dd><a class="ext" href="https://www.homelessworldcup.org" target="_blank" rel="noopener">Homeless World Cup<span class="vh"> (se abre en una pestaña nueva)</span></a></dd></div><div><dt>Duración</dt><dd>1'–1'30&quot;</dd></div></dl></div>
     </div>
     
-    <div class="proj-extra"><figure class="xv"><div class="embed"><iframe onload="var f=this;setTimeout(function(){f.classList.add('on')},350)" src="https://player.vimeo.com/video/311199664?dnt=1" title="Equal Game Mexico DF" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div><figcaption>Equal Game Mexico DF</figcaption></figure><figure class="xv"><div class="embed"><iframe onload="var f=this;setTimeout(function(){f.classList.add('on')},350)" src="https://player.vimeo.com/video/174627339?dnt=1" title="Equal Game Glasgow" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div><figcaption>Equal Game Glasgow</figcaption></figure></div>
+    <div class="proj-extra"><figure class="xv"><div class="embed vposter" style="aspect-ratio: 1280 / 720" data-id="311199664" data-title="Equal Game Mexico DF"><button class="reel-play" type="button" aria-label="Reproducir el vídeo"><img src="/assets/img/film/extras/311199664.jpg" alt="" width="1280" height="720" loading="lazy"><span class="tri" aria-hidden="true"></span></button></div><figcaption>Equal Game Mexico DF</figcaption></figure><figure class="xv"><div class="embed vposter" style="aspect-ratio: 1280 / 720" data-id="174627339" data-title="Equal Game Glasgow"><button class="reel-play" type="button" aria-label="Reproducir el vídeo"><img src="/assets/img/film/extras/174627339.jpg" alt="" width="1280" height="720" loading="lazy"><span class="tri" aria-hidden="true"></span></button></div><figcaption>Equal Game Glasgow</figcaption></figure></div>
   </div>
 </article>
 <nav class="pn" aria-label="Anterior / Siguiente"><a class="prev" href="/es/film/street-soccer-andy-s-story/"><span class="t"><small>← Anterior</small>Street Soccer: Stories</span></a><a class="gal" href="/es/#film">Film</a><a class="next" href="/es/film/homeless-world-cup-2017-dulce-s-story/"><span class="t"><small>Siguiente →</small>Homeless World Cup: Stories</span></a></nav>
 <footer class="foot">© 2026 Nacho Spínola · Todos los derechos reservados</footer>
 </main>
 </div>
+<script>(function(){document.querySelectorAll(".vposter").forEach(function(b){var btn=b.querySelector(".reel-play");if(!btn)return;
+btn.addEventListener("click",function(){if(b.querySelector("iframe"))return;btn.classList.add("loading");
+var f=document.createElement("iframe");f.src="https://player.vimeo.com/video/"+b.dataset.id+"?dnt=1&autoplay=1&playsinline=1&api=1";f.title=b.dataset.title;f.allow="autoplay; fullscreen; picture-in-picture";
+var shown=false,t0=Date.now();function show(){if(shown)return;shown=true;f.classList.add("on");setTimeout(function(){if(btn.parentNode)btn.parentNode.removeChild(btn)},650)}
+function send(m,v){try{f.contentWindow.postMessage(JSON.stringify({method:m,value:v}),"*")}catch(e){}}
+window.addEventListener("message",function(ev){if(ev.source!==f.contentWindow)return;var d=ev.data;if(typeof d==="string"){try{d=JSON.parse(d)}catch(e){return}}if(!d)return;
+if(d.event==="ready"){send("addEventListener","play");send("addEventListener","playProgress");setTimeout(show,5000)}
+else if(d.event==="play"){setTimeout(show,300)}
+else if(d.event==="playProgress"&&d.data&&d.data.seconds>0.05){show()}});
+b.appendChild(f)})})})();</script>
 </body>
 </html>

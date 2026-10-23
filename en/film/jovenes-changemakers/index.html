@@ -9,7 +9,7 @@
 
 <link rel="alternate" hreflang="es" href="/es/film/jovenes-changemakers/">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1792744359123">
+<link rel="stylesheet" href="/assets/css/style.css?v=1792744691052">
 <script>try{var r=document.referrer,m=r&&r.indexOf(location.origin)===0?r.slice(location.origin.length):"";if(/^\/(es|en)\/film\/[^\/]+\//.test(m))document.documentElement.classList.add("brand-done")}catch(e){}</script>
 </head>
 <body class="has-compact">
@@ -23,18 +23,28 @@
 <article class="proj">
   <header class="proj-head"><p class="meta">Spain</p><h1>Ashoka<span class="sub">Jóvenes changemakers</span></h1></header>
   <div class="proj-body">
-    <div class="embed"><iframe onload="var f=this;setTimeout(function(){f.classList.add('on')},350)" src="https://player.vimeo.com/video/1153521726?dnt=1" title="Ashoka: Jóvenes changemakers" allow="fullscreen; picture-in-picture"></iframe></div>
+    <div class="embed vposter" data-id="1153521726" data-title="Ashoka: Jóvenes changemakers"><button class="reel-play" type="button" aria-label="Play the video"><img src="/assets/img/film/clips/1153521726.jpg" alt="" width="1280" height="720"><span class="tri" aria-hidden="true"></span></button></div>
     <div class="proj-text">
       <p class="lead">A series of videos showcasing the impact Ashoka can have on young people and their projects, highlighting how this organization — which works with entrepreneurs around the world — helps them drive change and make a difference.</p>
       <div class="proj-cols"><p>A different kind of project, where we had to shift the approach to make it more dynamic and in tune with the times. With a fresh style aimed at young audiences, it combines fast-paced editing, diverse technical resources, and music tailored for viewers accustomed to modern formats.</p><dl class="facts"><div><dt>Location</dt><dd>Spain</dd></div><div><dt>Organization</dt><dd><a class="ext" href="http://www.ashoka.es/" target="_blank" rel="noopener">Ashoka<span class="vh"> (opens in a new tab)</span></a></dd></div><div><dt>Length</dt><dd>2'–2'30&quot;</dd></div></dl></div>
     </div>
     
-    <div class="proj-extra"><figure class="xv"><div class="embed"><iframe onload="var f=this;setTimeout(function(){f.classList.add('on')},350)" src="https://player.vimeo.com/video/1153525543?dnt=1" title="Amaya" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div><figcaption>Amaya</figcaption></figure><figure class="xv"><div class="embed"><iframe onload="var f=this;setTimeout(function(){f.classList.add('on')},350)" src="https://player.vimeo.com/video/1153523081?dnt=1" title="Antonio" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div><figcaption>Antonio</figcaption></figure></div>
+    <div class="proj-extra"><figure class="xv"><div class="embed vposter" style="aspect-ratio: 1280 / 720" data-id="1153525543" data-title="Amaya"><button class="reel-play" type="button" aria-label="Play the video"><img src="/assets/img/film/extras/1153525543.jpg" alt="" width="1280" height="720" loading="lazy"><span class="tri" aria-hidden="true"></span></button></div><figcaption>Amaya</figcaption></figure><figure class="xv"><div class="embed vposter" style="aspect-ratio: 1280 / 720" data-id="1153523081" data-title="Antonio"><button class="reel-play" type="button" aria-label="Play the video"><img src="/assets/img/film/extras/1153523081.jpg" alt="" width="1280" height="720" loading="lazy"><span class="tri" aria-hidden="true"></span></button></div><figcaption>Antonio</figcaption></figure></div>
   </div>
 </article>
 <nav class="pn" aria-label="Previous / Next"><a class="prev" href="/en/film/acoge-un-plato/"><span class="t"><small>← Previous</small>CEAR: Acoge un plato</span></a><a class="gal" href="/en/#film">Film</a><a class="next" href="/en/film/personal/"><span class="t"><small>Next →</small>Personal</span></a></nav>
 <footer class="foot">© 2026 Nacho Spínola · All rights reserved</footer>
 </main>
 </div>
+<script>(function(){document.querySelectorAll(".vposter").forEach(function(b){var btn=b.querySelector(".reel-play");if(!btn)return;
+btn.addEventListener("click",function(){if(b.querySelector("iframe"))return;btn.classList.add("loading");
+var f=document.createElement("iframe");f.src="https://player.vimeo.com/video/"+b.dataset.id+"?dnt=1&autoplay=1&playsinline=1&api=1";f.title=b.dataset.title;f.allow="autoplay; fullscreen; picture-in-picture";
+var shown=false,t0=Date.now();function show(){if(shown)return;shown=true;f.classList.add("on");setTimeout(function(){if(btn.parentNode)btn.parentNode.removeChild(btn)},650)}
+function send(m,v){try{f.contentWindow.postMessage(JSON.stringify({method:m,value:v}),"*")}catch(e){}}
+window.addEventListener("message",function(ev){if(ev.source!==f.contentWindow)return;var d=ev.data;if(typeof d==="string"){try{d=JSON.parse(d)}catch(e){return}}if(!d)return;
+if(d.event==="ready"){send("addEventListener","play");send("addEventListener","playProgress");setTimeout(show,5000)}
+else if(d.event==="play"){setTimeout(show,300)}
+else if(d.event==="playProgress"&&d.data&&d.data.seconds>0.05){show()}});
+b.appendChild(f)})})})();</script>
 </body>
 </html>
