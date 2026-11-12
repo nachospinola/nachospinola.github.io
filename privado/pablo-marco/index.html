@@ -1,0 +1,157 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Pablo & Marco — Nacho Spínola</title>
+<style>
+@font-face{font-family:"Inter Tight";src:url("/assets/fonts/inter-tight-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter Tight";src:url("/assets/fonts/inter-tight-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter Tight";src:url("/assets/fonts/inter-tight-500.woff2") format("woff2");font-weight:500;font-display:swap}
+:root{--bg:#f1e9de;--ink:#1d1c1a;--accent:#b03a3a;--muted:#8a867f;--row:391px}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Inter Tight",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer;padding:0}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;text-decoration:none;color:var(--ink);border:1px solid var(--ink);padding:9px 16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;min-height:40px;cursor:pointer}
+.btn.on{background:var(--ink);color:var(--bg)}
+.btn[disabled]{opacity:.55;cursor:progress}
+@media (hover:hover) and (pointer:fine){.btn:hover{background:var(--ink);color:var(--bg)}}
+/* Puerta: contraseña */
+#gate{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:24px}
+#gate form{width:min(100%,340px);display:grid;gap:14px}
+#gate .brand{margin-bottom:18px}
+#gate label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+#gate input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--ink);padding:10px 0;font-size:16px;outline:0;border-radius:0}
+#gate input:focus{border-bottom-color:var(--accent)}
+#gate .btn{justify-content:center;margin-top:6px}
+#gate .err{min-height:20px;color:var(--accent);font-size:13px;margin:0}
+#gate .back{font-size:12px;color:var(--muted);text-decoration:none;margin-top:8px}
+.brand{font-size:22px;line-height:1.05;color:var(--accent)}
+.brand small{display:block;margin-top:6px;color:var(--ink);font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:500}
+.brand a{text-decoration:none;color:inherit}
+/* Galería */
+header.top{position:sticky;top:0;z-index:10;background:var(--bg);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding:16px clamp(16px,3vw,40px);border-bottom:1px solid rgba(0,0,0,.12)}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+main{padding:28px clamp(16px,3vw,40px) 96px}
+.grid{display:flex;flex-wrap:wrap;gap:8px}
+.grid::after{content:"";flex-grow:1000000}
+.c{position:relative;flex:calc(var(--ar)*100) 1 calc(var(--ar)*var(--row));overflow:hidden;background:rgba(0,0,0,.08);cursor:pointer;aspect-ratio:var(--ar)}
+.c img{display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease,transform 1.6s cubic-bezier(.2,.6,.2,1),filter .8s ease}
+.c img.ok{opacity:1}
+@media (hover:hover) and (pointer:fine){.c:hover img{transform:scale(1.012);filter:grayscale(1)}}
+body.bn .c:hover img{filter:none}
+#lb{position:fixed;inset:0;z-index:50;background:var(--bg);display:none;grid-template-rows:1fr auto}
+#lb.on{display:grid}
+#lb .st{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,48px);padding:56px clamp(16px,3vw,48px) 0;min-height:0}
+#lb .mid{flex:0 1 auto;min-width:0;display:grid;place-items:center}
+#lb .mid img{max-width:100%;max-height:calc(100vh - 150px);object-fit:contain;display:block}
+#lb .sd{flex:0 0 auto;width:clamp(48px,10vw,150px);height:min(46vh,380px);overflow:hidden;opacity:.3;cursor:pointer;transition:opacity .35s}
+@media (hover:hover) and (pointer:fine){#lb .sd:hover{opacity:.7}}
+#lb .sd img{width:100%;height:100%;object-fit:cover;display:block}
+#lb .sd.off{visibility:hidden}
+#lb .bar{display:flex;justify-content:space-between;align-items:center;padding:14px clamp(16px,3vw,40px) 18px;gap:12px}
+#lb .x{position:absolute;top:10px;right:14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:12px;z-index:2}
+.count{font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+@media (max-width:640px){:root{--row:230px}#lb .sd{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style></head><body>
+<div id="gate">
+  <form autocomplete="off">
+    <div class="brand"><a href="/es/photo/pablo-marco/" data-back>Nacho Spínola</a><small>Pablo & Marco</small></div>
+    <label for="pw" data-t="pw">Contraseña</label>
+    <input id="pw" type="password" autocomplete="current-password" autocapitalize="off" spellcheck="false" required>
+    <p class="err" role="alert"></p>
+    <button class="btn" type="submit" data-t="enter">Entrar</button>
+    <a class="back" href="/es/photo/pablo-marco/" data-back data-t="back">← Volver al proyecto</a>
+  </form>
+</div>
+<div id="app" hidden>
+<header class="top">
+  <div class="brand"><a href="/es/photo/pablo-marco/" data-back>Nacho Spínola</a><small>Pablo & Marco · <span data-t="all">Todas las fotos</span></small></div>
+  <div class="acts"><button class="btn" id="dla"></button><a class="btn" id="tog" href="#bn"></a></div>
+</header>
+<main><div class="grid"></div></main>
+</div>
+<div id="lb"><button class="x" data-t="close">Cerrar ✕</button><div class="st"><div class="sd p"><img alt=""></div><div class="mid"><img alt=""></div><div class="sd n"><img alt=""></div></div><div class="bar"><span class="count"></span><button class="btn" id="lbd" data-t="dl">Descargar</button></div></div>
+<script>
+(function(){
+var SALT="OpQnGPto6qP/ZJBrjbV0OQ==",ITER=250000,SLUG="pablo-marco",SK="ng-pablo-marco";
+var EN=/[?&]en\b/.test(location.search);
+var L=EN?{pw:"Password",enter:"Enter",back:"← Back to the project",all:"All photos",close:"Close ✕",dl:"Download",bad:"Wrong password.",wait:"Checking…",dla:"Download all",bn:"Black and white",col:"Colour",prep:"Preparing",nosec:"This page needs a secure connection (https)."}
+        :{pw:"Contraseña",enter:"Entrar",back:"← Volver al proyecto",all:"Todas las fotos",close:"Cerrar ✕",dl:"Descargar",bad:"Contraseña incorrecta.",wait:"Comprobando…",dla:"Descargar todas",bn:"Blanco y negro",col:"Color",prep:"Preparando",nosec:"Esta página necesita una conexión segura (https)."};
+document.documentElement.lang=EN?"en":"es";
+[].forEach.call(document.querySelectorAll("[data-t]"),function(e){e.textContent=L[e.dataset.t]});
+if(EN)[].forEach.call(document.querySelectorAll("[data-back]"),function(a){a.href=a.getAttribute("href").replace("/es/","/en/")});
+var gate=document.getElementById("gate"),app=document.getElementById("app"),err=gate.querySelector(".err"),lb=document.getElementById("lb");
+var key=null,sets={c:[],b:[]},items=[],cells=[],cur=0,cache={},shown="",io=null;
+function b64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u}
+function open1(buf){var u=new Uint8Array(buf);return crypto.subtle.decrypt({name:"AES-GCM",iv:u.subarray(0,12)},key,u.subarray(12))}
+function get(path){return fetch(path).then(function(r){if(!r.ok)throw new Error(path);return r.arrayBuffer()}).then(open1)}
+// Foto descifrada como Blob (se guarda para no repetir)
+function photo(n,thumb){var k=(isBn()?"b-":"c-")+n+(thumb?"-t":"");return cache[k]||(cache[k]=get("d/"+k+".bin").then(function(b){return new Blob([b],{type:"image/jpeg"})}))}
+function url(n,thumb){return photo(n,thumb).then(function(b){return b._u||(b._u=URL.createObjectURL(b))})}
+function derive(pw){return crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveBits"]).then(function(k){return crypto.subtle.deriveBits({name:"PBKDF2",salt:b64(SALT),iterations:ITER,hash:"SHA-256"},k,256)})}
+function useKey(raw){return crypto.subtle.importKey("raw",raw,"AES-GCM",false,["decrypt"]).then(function(k){key=k;return get("m.bin")}).then(function(b){sets=JSON.parse(new TextDecoder().decode(b))})}
+function isBn(){return location.hash==="#bn"&&sets.b.length>0}
+function mode(){var bn=isBn();document.body.classList.toggle("bn",bn);var t=document.getElementById("tog");t.hidden=!sets.b.length;t.textContent=bn?L.col:L.bn;t.href=bn?"#":"#bn";
+  if(shown!==(bn?"b":"c")){shown=bn?"b":"c";build()}
+  document.getElementById("dla").textContent=L.dla+" ("+items.length+")"}
+// Pinta la galería del juego elegido (color o blanco y negro)
+function build(){
+  items=sets[shown];cells=[];lb.classList.remove("on");
+  var g=app.querySelector(".grid");g.innerHTML="";if(io)io.disconnect();
+  io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);var im=e.target.querySelector("img");url(e.target.dataset.n,1).then(function(u){im.onload=function(){im.classList.add("ok")};im.src=u})})},{rootMargin:"600px"});
+  items.forEach(function(it,i){var c=document.createElement("div");c.className="c";c.dataset.n=it.n;c.style.setProperty("--ar",it.a);c.innerHTML='<img alt="">';c.onclick=function(){show(i)};g.appendChild(c);cells.push(c);io.observe(c)});
+}
+function start(){gate.hidden=true;app.hidden=false;mode()}
+window.addEventListener("hashchange",function(){mode();window.scrollTo(0,0)});
+document.getElementById("tog").onclick=function(e){e.preventDefault();if(isBn())history.pushState(null,"",location.pathname+location.search);else location.hash="bn";mode();window.scrollTo(0,0)};
+window.addEventListener("popstate",mode);
+gate.querySelector("form").onsubmit=function(e){
+  e.preventDefault();
+  if(!window.crypto||!crypto.subtle){err.textContent=L.nosec;return}
+  var b=gate.querySelector("button");b.disabled=true;err.textContent=L.wait;
+  derive(document.getElementById("pw").value).then(function(raw){return useKey(raw).then(function(){try{sessionStorage.setItem(SK,btoa(String.fromCharCode.apply(null,new Uint8Array(raw))))}catch(x){}})})
+   .then(function(){err.textContent="";start()},function(){err.textContent=L.bad;b.disabled=false;document.getElementById("pw").select()});
+};
+// Si ya se entró en esta pestaña, no se vuelve a pedir
+try{var s=sessionStorage.getItem(SK);if(s&&window.crypto&&crypto.subtle)useKey(b64(s)).then(start,function(){sessionStorage.removeItem(SK)})}catch(x){}
+document.getElementById("pw").focus();
+
+// Visor
+function show(i){cur=i;var n=items[i].n,m=lb.querySelector(".mid img");
+  lb.querySelector(".p").classList.toggle("off",i===0);lb.querySelector(".n").classList.toggle("off",i===items.length-1);
+  lb.querySelector(".count").textContent=(i+1)+" / "+items.length;lb.classList.add("on");
+  url(n,1).then(function(u){if(cur===i&&m.dataset.n!==n){m.src=u}});
+  url(n).then(function(u){if(cur===i){m.src=u;m.dataset.n=n}});
+  if(i>0)url(items[i-1].n,1).then(function(u){if(cur===i)lb.querySelector(".p img").src=u});
+  if(i<items.length-1)url(items[i+1].n,1).then(function(u){if(cur===i)lb.querySelector(".n img").src=u});
+}
+function shut(){lb.classList.remove("on")}
+lb.querySelector(".x").onclick=shut;
+lb.querySelector(".p").onclick=function(){if(cur>0)show(cur-1)};lb.querySelector(".n").onclick=function(){if(cur<items.length-1)show(cur+1)};
+document.onkeydown=function(e){if(!lb.classList.contains("on"))return;if(e.key==="ArrowLeft"&&cur>0)show(cur-1);if(e.key==="ArrowRight"&&cur<items.length-1)show(cur+1);if(e.key==="Escape")shut()};
+
+// Descargas
+function file(n){var bn=isBn();return photo(n).then(function(b){return {name:SLUG+(bn?"-bn":"")+"-"+n+".jpg",blob:b}})}
+function save(blob,name){var a=document.createElement("a"),u=URL.createObjectURL(blob);a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},60000)}
+document.getElementById("lbd").onclick=function(){file(items[cur].n).then(function(f){save(f.blob,f.name)})};
+// "Descargar todas": un único .zip hecho en el navegador (sin comprimir: los JPG ya lo están)
+var T=(function(){var t=[],c,n,k;for(n=0;n<256;n++){c=n;for(k=0;k<8;k++)c=c&1?3988292384^(c>>>1):c>>>1;t[n]=c}return t})();
+function crc(u){var c=-1;for(var i=0;i<u.length;i++)c=T[(c^u[i])&255]^(c>>>8);return (c^-1)>>>0}
+function zipAll(){
+  var btn=document.getElementById("dla"),bn=isBn(),parts=[],cd=[],off=0,i=0;btn.disabled=true;
+  function hdr(sig,nm,c,sz,extra){var h=new DataView(new ArrayBuffer(extra?46:30)),o=0;h.setUint32(0,sig,true);o=4;if(extra){h.setUint16(o,20,true);o+=2}
+    h.setUint16(o,20,true);h.setUint16(o+2,0x800,true);h.setUint16(o+4,0,true);h.setUint16(o+6,0,true);h.setUint16(o+8,0x21,true);h.setUint32(o+10,c,true);h.setUint32(o+14,sz,true);h.setUint32(o+18,sz,true);h.setUint16(o+22,nm.length,true);
+    if(extra)h.setUint32(42,extra.off,true);return new Uint8Array(h.buffer)}
+  function next(){
+    if(i>=items.length){var cs=0;cd.forEach(function(p){cs+=p.length});var e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,items.length,true);e.setUint16(10,items.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
+      save(new Blob(parts.concat(cd,[new Uint8Array(e.buffer)]),{type:"application/zip"}),SLUG+(bn?"-bn":"")+".zip");btn.disabled=false;mode();return}
+    btn.textContent=L.prep+"… "+(i+1)+" / "+items.length;
+    file(items[i].n).then(function(f){return f.blob.arrayBuffer().then(function(ab){var u=new Uint8Array(ab),nm=new TextEncoder().encode(f.name),c=crc(u);
+      parts.push(hdr(0x04034b50,nm,c,u.length),nm,u);cd.push(hdr(0x02014b50,nm,c,u.length,{off:off}),nm);off+=30+nm.length+u.length;
+      if(!lb.classList.contains("on")||cur!==i){delete cache[(bn?"b-":"c-")+items[i].n]}i++;next()})}).catch(function(){btn.disabled=false;mode()});
+  }
+  next();
+}
+document.getElementById("dla").onclick=zipAll;
+})();
+</script></body></html>

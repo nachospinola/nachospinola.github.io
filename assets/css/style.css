@@ -817,3 +817,33 @@ html.brand-done .has-compact .side .brand { animation: none; }
 .proj-photo .proj-head { gap: var(--s2); }
 .proj-photo h1 { font-size: clamp(32px, 4.2vw, 64px); font-weight: 400; letter-spacing: -.03em; line-height: 1; }
 .proj-photo .meta { letter-spacing: .3em; }
+
+/* PHOTO: 4 proyectos en grande, 2 por fila */
+.work.p2 { grid-template-columns: repeat(2, 1fr); gap: var(--s6) 3vw; }
+.work.p2 .ph { aspect-ratio: 4 / 5; }
+
+/* Montaje: foto recortada a una proporción más cuadrada (campo "crop" en layouts.json) */
+.scene figure.crop img { aspect-ratio: var(--ar); object-fit: cover; }
+
+/* Montaje B (por estancias) + panel de pruebas A/B (TEMPORAL) */
+.vA, .vB { display: contents; }
+body[data-pv="a"] .vB, body:not([data-pv]) .vB { display: none; }
+body[data-pv="b"] .vA { display: none; }
+body[data-pv="b"] .book { gap: 64px; }
+@media (min-width: 900px) { body[data-pv="b"] .book { gap: 72px; } }
+.chap { width: var(--w); justify-self: var(--a); }
+.chap .scene { width: 100%; }
+.room { margin-bottom: 14px; color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; }
+.ab-pick { position: fixed; right: 16px; bottom: 16px; z-index: 50; display: flex; gap: 6px; align-items: center; padding: 8px 10px; background: var(--bg); border: 1px solid rgba(0,0,0,.2); font-size: 11px; }
+.ab-pick button { font: inherit; padding: 4px 10px; border: 1px solid rgba(0,0,0,.3); background: none; cursor: pointer; }
+.ab-pick button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+/* Las parejas del montaje no deben heredar la rejilla antigua ".pair" */
+.scene.pair { display: flex; grid-template-columns: none; }
+/* Montaje: menos aire entre composiciones para no bajar tanto */
+@media (min-width: 900px) { .book { gap: 72px; } }
+
+/* Pestaña "Todas las fotos" al final de un proyecto de PHOTO: lleva a la galería privada (con contraseña) */
+.all-photos { margin: 40px 0 0; display: flex; justify-content: center; }
+.all-photos a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border: 1px solid var(--accent); color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; transition: background-color .25s ease, color .25s ease; }
+@media (hover: hover) and (pointer: fine) { .all-photos a:hover { background: var(--accent); color: var(--bg); } }
+.all-photos a:active { transform: scale(.97); }
