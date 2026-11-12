@@ -847,3 +847,7 @@ body[data-pv="b"] .book { gap: 64px; }
 .all-photos a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border: 1px solid var(--accent); color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; transition: background-color .25s ease, color .25s ease; }
 @media (hover: hover) and (pointer: fine) { .all-photos a:hover { background: var(--accent); color: var(--bg); } }
 .all-photos a:active { transform: scale(.97); }
+
+/* Montaje: una fila puede SUBIR para compartir altura con la anterior, que queda al otro lado (campo `up` en layouts.json,
+   en % del ancho del montaje). Solo en pantallas anchas: en móvil las fotos van una debajo de otra. */
+@media (min-width: 700px) { .scene.up { margin-top: calc(var(--up) * -1%); } }
