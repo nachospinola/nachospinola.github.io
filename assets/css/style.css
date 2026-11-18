@@ -876,3 +876,6 @@ body[data-pv="b"] .book { gap: 64px; }
 /* mientras el vídeo ocupa la pantalla, el menú lateral (y ES/EN) se desvanece */
 .side { transition: opacity .4s ease; }
 body.vid-on .side { opacity: 0; pointer-events: none; }
+
+/* Contact: la foto (fotograma de la familia india) es más panorámica: recortada un 20 % por arriba (1920x864) */
+.cv3 .cv-photo { aspect-ratio: 1920 / 864; }
