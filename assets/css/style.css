@@ -883,3 +883,9 @@ body.vid-on .side { opacity: 0; pointer-events: none; }
 /* Vídeo de PHOTO con portada diseñada: en pantallas verticales (móvil) el marco es 16:9 para que la portada y su texto se vean enteros */
 @media (max-aspect-ratio: 1/1) { .pv-frame { height: auto; aspect-ratio: 16 / 9; } }
 
+/* Botón fijo "Ver vídeo ↓" (páginas de PHOTO con vídeo), elegido por Nacho: rojo redondeado abajo a la derecha; baja hasta el vídeo y se oculta mientras se ve. */
+.pv-jump { position: fixed; right: 24px; bottom: 24px; z-index: 800; display: flex; align-items: center; gap: 14px; padding: 15px 22px 15px 24px; border-radius: 999px; background: var(--accent); color: #fff; box-shadow: 0 6px 22px rgba(0,0,0,.18); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; transition: opacity .4s ease, background-color .3s ease; }
+.pv-jump .ar { letter-spacing: 0; font-size: 14px; }
+@media (hover: hover) and (pointer: fine) { .pv-jump:hover { background: var(--ink); } }
+body.vid-on .pv-jump { opacity: 0; pointer-events: none; }
+@media (max-width: 899px) { .pv-jump { right: 16px; bottom: 16px; padding: 12px 18px 12px 20px; } }
