@@ -910,3 +910,6 @@ body.near-end .pv-jump { opacity: 0; pointer-events: none; }
 .foot a { color: inherit; text-decoration: none; }
 @media (hover: hover) and (pointer: fine) { .foot a:hover { color: var(--accent); } }
 @media (min-width: 900px) { .content:has(.legal) { justify-items: start; } .legal { margin-left: 4vw; } }
+/* En las páginas de proyecto la flecha va dentro de la página, a la derecha, justo encima de la línea de "Anterior · Siguiente", y siempre visible */
+.pn { position: relative; }
+.to-top.inflow { position: absolute; right: 0; bottom: calc(100% + 18px); opacity: 1; pointer-events: auto; transform: none; box-shadow: none; }

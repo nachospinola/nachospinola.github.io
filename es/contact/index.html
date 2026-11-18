@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon/icon-192.png?v=6">
 <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png?v=4">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1795038971118">
+<link rel="stylesheet" href="/assets/css/style.css?v=1795039579290">
 </head>
 <body>
 <div class="page">
@@ -33,6 +33,10 @@
 <footer class="foot">© 2026 Nacho Spínola · Todos los derechos reservados · <a href="/es/legal/">Aviso legal</a> · <a href="/es/privacy/">Privacidad</a></footer>
 <a class="to-top" href="#" aria-label="Volver arriba">↑</a>
 <script>(function(){var b=document.querySelector(".to-top");if(!b||b.dataset.on)return;b.dataset.on=1;var body=document.body,calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* en las páginas de proyecto va justo encima de la línea de "Anterior · Siguiente" (pedido por Nacho), no en la esquina */var pn=document.querySelector("nav.pn");if(pn){pn.appendChild(b);b.classList.add("inflow");
+/* si hay botón "Todas las fotos", la flecha se pone a su misma altura (pedido por Nacho) */var ap=document.querySelector(".all-photos a");
+function lv(){if(!ap)return;b.style.bottom="";var r=ap.getBoundingClientRect(),p=pn.getBoundingClientRect();b.style.bottom=(p.top-(r.top+r.height/2)-b.offsetHeight/2+p.height)+"px"}
+lv();addEventListener("resize",lv);addEventListener("load",lv)}
 function chk(){var h=document.documentElement.scrollHeight,y=scrollY+innerHeight;body.classList.toggle("near-end",scrollY>innerHeight&&y>h-innerHeight*.9)}
 addEventListener("scroll",chk,{passive:true});addEventListener("resize",chk);chk();
 b.addEventListener("click",function(e){e.preventDefault();if(calm){scrollTo(0,0);return}var hh=document.documentElement,s0=scrollY,T0=Math.min(1400,Math.max(700,s0/6)),t0=null;hh.style.scrollBehavior="auto";
