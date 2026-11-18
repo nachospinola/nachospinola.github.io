@@ -9,7 +9,7 @@
 
 <link rel="alternate" hreflang="en" href="/en/photo/pablo-marco/">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1794909633899">
+<link rel="stylesheet" href="/assets/css/style.css?v=1794963000995">
 <script>try{var r=document.referrer,m=r&&r.indexOf(location.origin)===0?r.slice(location.origin.length):"";if(/^\/(es|en)\/(film|photo)\/[^\/]+\//.test(m))document.documentElement.classList.add("brand-done")}catch(e){}</script>
 </head>
 <body class="has-compact">
@@ -112,7 +112,18 @@
     <div class="scene single" style="--w:48%;--a:center">
       <figure class="" style="--ar:1.5000"><img src="/assets/img/photo/pablo-marco/48-2400.jpg" srcset="/assets/img/photo/pablo-marco/48-1200.jpg 1200w, /assets/img/photo/pablo-marco/48-2400.jpg 2400w" sizes="(min-width: 900px) 518px, 100vw" alt="Pablo &amp; Marco" width="2400" height="1600" loading="lazy"></figure>
     </div>
-</div></div>
+</div><section class="pvid" aria-label="Despierta">
+  <div class="pv-frame"><video src="/assets/video/pablo-marco/despierta.mp4" poster="/assets/video/pablo-marco/despierta.jpg" preload="none" playsinline></video>
+    <button class="pv-play" type="button" aria-label="Reproducir la película"><span class="tri" aria-hidden="true"></span></button></div>
+</section></div>
+<script>(function(){var b=document.body,sec=document.querySelector(".pvid");if(!sec)return;var v=sec.querySelector("video"),play=sec.querySelector(".pv-play");
+var calm=matchMedia("(prefers-reduced-motion: reduce)").matches,vis=false;
+function bleed(){sec.style.marginLeft="0";sec.style.marginLeft=(-sec.getBoundingClientRect().left)+"px"}
+function loopIfVisible(){if(sec.classList.contains("playing")||calm)return;if(vis){v.muted=true;v.loop=true;v.preload="auto";v.play().catch(function(){})}else v.pause()}
+if("IntersectionObserver" in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;loopIfVisible()},{threshold:.15}).observe(sec);
+new IntersectionObserver(function(es){b.classList.toggle("vid-on",es[0].intersectionRatio>=.6)},{threshold:[0,.6,1]}).observe(sec)}
+bleed();addEventListener("resize",bleed);
+play.addEventListener("click",function(){if(v.loop){try{v.currentTime=0}catch(e){}}sec.classList.add("playing");v.muted=false;v.loop=false;v.controls=true;v.play().catch(function(){})})})()</script>
   <p class="all-photos"><a href="/privado/pablo-marco/" target="_blank" rel="noopener">Todas las fotos</a></p>
 </article>
 <nav class="pn" aria-label="Anterior / Siguiente"><a class="prev" href="/es/photo/paula-javi/"><span class="t"><small>← Anterior</small>Paula &amp; Javi</span></a><a class="gal" href="/es/#photo">Photo</a><a class="next" href="/es/photo/olivia-elvira/"><span class="t"><small>Siguiente →</small>Olivia &amp; Elvira</span></a></nav>

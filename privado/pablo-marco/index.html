@@ -50,6 +50,21 @@ body.bn .c:hover img{filter:none}
 #lb .bar{display:flex;justify-content:space-between;align-items:center;padding:14px clamp(16px,3vw,40px) 18px;gap:12px}
 #lb .x{position:absolute;top:10px;right:14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:12px;z-index:2}
 .count{font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+/* Pestaña Vídeo: reproductor + bloque de descarga muy visible */
+.btn.vid{border-color:var(--accent);color:var(--accent)}
+.btn.vid.on{background:var(--accent);color:#fff}
+@media (hover:hover) and (pointer:fine){.btn.vid:hover{background:var(--accent);color:#fff}}
+#vid{max-width:1200px;margin:0 auto}
+#vid video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.dlv{display:flex;justify-content:center;margin-top:28px}
+.dlv .big{display:inline-flex;align-items:center;gap:12px;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;padding:18px 28px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.dlv .big svg{width:18px;height:18px}
+@media (hover:hover) and (pointer:fine){.dlv .big:hover{background:var(--ink)}}
+.dlv .big small{display:block;font-size:10px;letter-spacing:.14em;opacity:.85;margin-top:3px}
+.dlv h2{margin:0 0 8px;font-size:15px;font-weight:500;color:var(--accent)}
+.dlv ol{margin:0;padding-left:18px;color:var(--ink)}
+.dlv li{margin:4px 0}
+body.video main .grid{display:none}
 @media (max-width:640px){:root{--row:230px}#lb .sd{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style></head><body>
@@ -66,17 +81,23 @@ body.bn .c:hover img{filter:none}
 <div id="app" hidden>
 <header class="top">
   <div class="brand"><a href="/es/photo/pablo-marco/" data-back>Nacho Spínola</a><small>Pablo & Marco · <span data-t="all">Todas las fotos</span></small></div>
-  <div class="acts"><button class="btn" id="dla"></button><a class="btn" id="tog" href="#bn"></a></div>
+  <div class="acts"><button class="btn" id="dla"></button><a class="btn" id="tog" href="#bn"></a><a class="btn vid" id="vtab" href="#video" data-t="video">Vídeo</a></div>
 </header>
-<main><div class="grid"></div></main>
+<main><div class="grid"></div>
+<section id="vid" hidden>
+  <video src="/assets/video/pablo-marco/despierta.mp4" poster="/assets/video/pablo-marco/despierta.jpg" controls playsinline preload="metadata"></video>
+  <div class="dlv">
+    <a class="big" href="/assets/video/pablo-marco/despierta.mp4" download="pablo-marco.mp4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span><span data-t="vdl">Descargar el vídeo</span><small>MP4 · 93 MB</small></span></a>
+  </div>
+</section></main>
 </div>
 <div id="lb"><button class="x" data-t="close">Cerrar ✕</button><div class="st"><div class="sd p"><img alt=""></div><div class="mid"><img alt=""></div><div class="sd n"><img alt=""></div></div><div class="bar"><span class="count"></span><button class="btn" id="lbd" data-t="dl">Descargar</button></div></div>
 <script>
 (function(){
 var SALT="OpQnGPto6qP/ZJBrjbV0OQ==",ITER=250000,SLUG="pablo-marco",SK="ng-pablo-marco";
 var EN=/[?&]en\b/.test(location.search);
-var L=EN?{pw:"Password",enter:"Enter",back:"← Back to the project",all:"All photos",close:"Close ✕",dl:"Download",bad:"Wrong password.",wait:"Checking…",dla:"Download all",bn:"Black and white",col:"Colour",prep:"Preparing",nosec:"This page needs a secure connection (https)."}
-        :{pw:"Contraseña",enter:"Entrar",back:"← Volver al proyecto",all:"Todas las fotos",close:"Cerrar ✕",dl:"Descargar",bad:"Contraseña incorrecta.",wait:"Comprobando…",dla:"Descargar todas",bn:"Blanco y negro",col:"Color",prep:"Preparando",nosec:"Esta página necesita una conexión segura (https)."};
+var L=EN?{pw:"Password",enter:"Enter",back:"← Back to the project",all:"All photos",close:"Close ✕",dl:"Download",bad:"Wrong password.",wait:"Checking…",dla:"Download all",bn:"Black and white",col:"Colour",prep:"Preparing",nosec:"This page needs a secure connection (https).",video:"Video",photos:"Photos",vdl:"Download the video",vhow:"How to download it",v1:"Press «Download the video».",v2:"On a computer it is saved in your Downloads folder.",v3:"On a phone, the browser asks whether you want to download it: accept. On iPhone you will find it in the Files app › Downloads, and from there you can save it to Photos."}
+        :{pw:"Contraseña",enter:"Entrar",back:"← Volver al proyecto",all:"Todas las fotos",close:"Cerrar ✕",dl:"Descargar",bad:"Contraseña incorrecta.",wait:"Comprobando…",dla:"Descargar todas",bn:"Blanco y negro",col:"Color",prep:"Preparando",nosec:"Esta página necesita una conexión segura (https).",video:"Vídeo",photos:"Fotos",vdl:"Descargar el vídeo",vhow:"Cómo descargarlo",v1:"Pulsa el botón «Descargar el vídeo».",v2:"En el ordenador se guarda en la carpeta Descargas.",v3:"En el móvil, el navegador te pregunta si quieres descargarlo: acepta. En iPhone lo encontrarás en la app Archivos › Descargas, y desde ahí puedes guardarlo en Fotos."};
 document.documentElement.lang=EN?"en":"es";
 [].forEach.call(document.querySelectorAll("[data-t]"),function(e){e.textContent=L[e.dataset.t]});
 if(EN)[].forEach.call(document.querySelectorAll("[data-back]"),function(a){a.href=a.getAttribute("href").replace("/es/","/en/")});
@@ -91,7 +112,9 @@ function url(n,thumb){return photo(n,thumb).then(function(b){return b._u||(b._u=
 function derive(pw){return crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveBits"]).then(function(k){return crypto.subtle.deriveBits({name:"PBKDF2",salt:b64(SALT),iterations:ITER,hash:"SHA-256"},k,256)})}
 function useKey(raw){return crypto.subtle.importKey("raw",raw,"AES-GCM",false,["decrypt"]).then(function(k){key=k;return get("m.bin")}).then(function(b){sets=JSON.parse(new TextDecoder().decode(b))})}
 function isBn(){return location.hash==="#bn"&&sets.b.length>0}
-function mode(){var bn=isBn();document.body.classList.toggle("bn",bn);var t=document.getElementById("tog");t.hidden=!sets.b.length;t.textContent=bn?L.col:L.bn;t.href=bn?"#":"#bn";
+function isVid(){return location.hash==="#video"&&!!document.getElementById("vid")}
+function mode(){var bn=isBn(),vd=isVid();document.body.classList.toggle("bn",bn);document.body.classList.toggle("video",vd);var t=document.getElementById("tog");t.hidden=!sets.b.length&&!vd;t.textContent=vd?L.photos:bn?L.col:L.bn;t.href=vd||bn?"#":"#bn";
+  var V=document.getElementById("vid"),vt=document.getElementById("vtab");if(V){V.hidden=!vd;vt.classList.toggle("on",vd);if(!vd)V.querySelector("video").pause()}document.getElementById("dla").hidden=vd;
   if(shown!==(bn?"b":"c")){shown=bn?"b":"c";build()}
   document.getElementById("dla").textContent=L.dla+" ("+items.length+")"}
 // Pinta la galería del juego elegido (color o blanco y negro)
@@ -103,7 +126,8 @@ function build(){
 }
 function start(){gate.hidden=true;app.hidden=false;mode()}
 window.addEventListener("hashchange",function(){mode();window.scrollTo(0,0)});
-document.getElementById("tog").onclick=function(e){e.preventDefault();if(isBn())history.pushState(null,"",location.pathname+location.search);else location.hash="bn";mode();window.scrollTo(0,0)};
+var vtab=document.getElementById("vtab");if(vtab)vtab.onclick=function(e){e.preventDefault();location.hash="video";mode();window.scrollTo(0,0)};
+document.getElementById("tog").onclick=function(e){e.preventDefault();if(isBn()||isVid())history.pushState(null,"",location.pathname+location.search);else location.hash="bn";mode();window.scrollTo(0,0)};
 window.addEventListener("popstate",mode);
 gate.querySelector("form").onsubmit=function(e){
   e.preventDefault();
