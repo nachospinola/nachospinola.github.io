@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon/icon-192.png?v=6">
 <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png?v=4">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1795034890808">
+<link rel="stylesheet" href="/assets/css/style.css?v=1795038971118">
 <script>try{var r=document.referrer,m=r&&r.indexOf(location.origin)===0?r.slice(location.origin.length):"";if(/^\/(es|en)\/(film|photo)\/[^\/]+\//.test(m))document.documentElement.classList.add("brand-done")}catch(e){}</script>
 </head>
 <body class="has-compact">
@@ -36,7 +36,13 @@
   </div>
 </article>
 <nav class="pn" aria-label="Anterior / Siguiente"><a class="prev" href="/es/film/homeless-world-cup-2019-uefa-s-respect-day/"><span class="t"><small>← Anterior</small>Homeless World Cup: Equal Game</span></a><a class="gal" href="/es/#film">Film</a><a class="next" href="/es/film/srna-francisco-s-story/"><span class="t"><small>Siguiente →</small>SRNA: The power of community</span></a></nav>
-<footer class="foot">© 2026 Nacho Spínola · Todos los derechos reservados</footer>
+<footer class="foot">© 2026 Nacho Spínola · Todos los derechos reservados · <a href="/es/legal/">Aviso legal</a> · <a href="/es/privacy/">Privacidad</a></footer>
+<a class="to-top" href="#" aria-label="Volver arriba">↑</a>
+<script>(function(){var b=document.querySelector(".to-top");if(!b||b.dataset.on)return;b.dataset.on=1;var body=document.body,calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function chk(){var h=document.documentElement.scrollHeight,y=scrollY+innerHeight;body.classList.toggle("near-end",scrollY>innerHeight&&y>h-innerHeight*.9)}
+addEventListener("scroll",chk,{passive:true});addEventListener("resize",chk);chk();
+b.addEventListener("click",function(e){e.preventDefault();if(calm){scrollTo(0,0);return}var hh=document.documentElement,s0=scrollY,T0=Math.min(1400,Math.max(700,s0/6)),t0=null;hh.style.scrollBehavior="auto";
+function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/T0,1),e2=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;scrollTo(0,s0*(1-e2));if(p<1)requestAnimationFrame(step);else hh.style.scrollBehavior=""}requestAnimationFrame(step)})})()</script>
 </main>
 </div>
 <script>(function(){document.querySelectorAll(".vposter").forEach(function(b){var btn=b.querySelector(".reel-play");if(!btn)return;

@@ -889,3 +889,24 @@ body.vid-on .side { opacity: 0; pointer-events: none; }
 @media (hover: hover) and (pointer: fine) { .pv-jump:hover { background: var(--ink); } }
 body.vid-on .pv-jump { opacity: 0; pointer-events: none; }
 @media (max-width: 899px) { .pv-jump { right: 16px; bottom: 16px; padding: 12px 18px 12px 20px; } }
+
+/* Móvil: el vídeo a pantalla completa (100vw) ensanchaba la columna del proyecto y las fotos se quedaban sin margen derecho. La columna no crece por su contenido. */
+.proj, .proj-body { grid-template-columns: minmax(0, 1fr); }
+
+/* Flecha "volver arriba": aparece al llegar al final de la página (abajo a la derecha); sube rápido y suave. Mientras se ve, el botón "Ver vídeo" se oculta. */
+.to-top { position: fixed; right: 24px; bottom: 24px; z-index: 810; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--bg); color: var(--accent); border: 1px solid var(--accent); font-size: 18px; line-height: 1; text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,.10); opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease, background-color .3s ease, color .3s ease; }
+body.near-end .to-top { opacity: 1; pointer-events: auto; transform: none; }
+body.near-end .pv-jump { opacity: 0; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { .to-top:hover { background: var(--accent); color: #fff; } }
+@media (max-width: 899px) { .to-top { right: 16px; bottom: 16px; } }
+@media (prefers-reduced-motion: reduce) { .to-top { transition: none; transform: none; } }
+
+/* Páginas legales (Aviso legal, Privacidad): texto sencillo, columna estrecha. Enlaces discretos en el pie. */
+.legal { width: 100%; max-width: 720px; justify-self: start; display: grid; gap: var(--s3); font-size: 14px; line-height: 1.65; color: var(--ink); }
+.legal h1 { margin: 0 0 var(--s6); font-size: clamp(28px, 3.6vw, 44px); font-weight: 400; letter-spacing: -.03em; line-height: 1; }
+.legal h2 { margin: var(--s8) 0 0; color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; }
+.legal p { margin: 0; }
+.legal a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.foot a { color: inherit; text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { .foot a:hover { color: var(--accent); } }
+@media (min-width: 900px) { .content:has(.legal) { justify-items: start; } .legal { margin-left: 4vw; } }
