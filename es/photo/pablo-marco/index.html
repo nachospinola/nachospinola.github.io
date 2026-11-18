@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon/icon-192.png?v=6">
 <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png?v=4">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1794996896009">
+<link rel="stylesheet" href="/assets/css/style.css?v=1795000557582">
 <script>try{var r=document.referrer,m=r&&r.indexOf(location.origin)===0?r.slice(location.origin.length):"";if(/^\/(es|en)\/(film|photo)\/[^\/]+\//.test(m))document.documentElement.classList.add("brand-done")}catch(e){}</script>
 </head>
 <body class="has-compact">
@@ -122,7 +122,7 @@
 <script>(function(){var b=document.body,sec=document.querySelector(".pvid");if(!sec)return;var v=sec.querySelector("video"),play=sec.querySelector(".pv-play");
 var calm=matchMedia("(prefers-reduced-motion: reduce)").matches,vis=false;
 function bleed(){sec.style.marginLeft="0";sec.style.marginLeft=(-sec.getBoundingClientRect().left)+"px"}
-function loopIfVisible(){if(sec.classList.contains("playing")||calm)return;if(vis){v.muted=true;v.loop=true;v.preload="auto";v.play().catch(function(){})}else v.pause()}
+function loopIfVisible(){return; /* con portada diseñada (2026-11-18) ya no se reproduce en bucle antes del play: se ve la portada */ if(sec.classList.contains("playing")||calm)return;if(vis){v.muted=true;v.loop=true;v.preload="auto";v.play().catch(function(){})}else v.pause()}
 if("IntersectionObserver" in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;loopIfVisible()},{threshold:.15}).observe(sec);
 new IntersectionObserver(function(es){b.classList.toggle("vid-on",es[0].intersectionRatio>=.6)},{threshold:[0,.6,1]}).observe(sec)}
 bleed();addEventListener("resize",bleed);

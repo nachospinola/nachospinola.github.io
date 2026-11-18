@@ -879,3 +879,7 @@ body.vid-on .side { opacity: 0; pointer-events: none; }
 
 /* Contact: la foto (fotograma de la familia india) es más panorámica: recortada un 20 % por arriba (1920x864) */
 .cv3 .cv-photo { aspect-ratio: 1920 / 864; }
+
+/* Vídeo de PHOTO con portada diseñada: en pantallas verticales (móvil) el marco es 16:9 para que la portada y su texto se vean enteros */
+@media (max-aspect-ratio: 1/1) { .pv-frame { height: auto; aspect-ratio: 16 / 9; } }
+
