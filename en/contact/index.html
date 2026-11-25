@@ -5,19 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — Nacho Spínola</title>
 <meta name="description" content="Filmmaker and photographer">
-<meta name="robots" content="noindex, nofollow">
 
-<link rel="alternate" hreflang="es" href="/es/contact/">
+<link rel="alternate" hreflang="es" href="/contact/">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32.png?v=6">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon/icon-192.png?v=6">
 <link rel="apple-touch-icon" href="/assets/icon/apple-touch-icon.png?v=4">
 <link rel="preload" href="/assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=1795039579290">
+<link rel="stylesheet" href="/assets/css/style.css?v=1795102858012">
 </head>
 <body>
 <div class="page">
 <aside class="side">
-  <nav class="menu" aria-label="Main"><a data-sec="film" href="/en/#film">Film</a><a data-sec="photo" href="/en/#photo">Photo</a><span class="gap"></span><a class="sec" data-sec="about" href="/en/#about">About</a><a class="sec" data-sec="contact" href="/en/#contact" aria-current="page">Contact</a><a class="sec" href="/es/contact/" hreflang="es">ES</a></nav>
+  <nav class="menu" aria-label="Main"><a data-sec="film" href="/en/#film">Film</a><a data-sec="photo" href="/en/#photo">Photo</a><span class="gap"></span><a class="sec" data-sec="about" href="/en/#about">About</a><a class="sec" data-sec="contact" href="/en/#contact" aria-current="page">Contact</a><a class="sec" href="/contact/" hreflang="es">ES</a></nav>
   <div class="side-bottom"><a class="brand" href="/en/">Nacho<br>Spínola</a></div>
 </aside>
 <main class="content">
@@ -30,7 +29,7 @@
     </div>
   </div>
 </div>
-<footer class="foot">© 2026 Nacho Spínola · All rights reserved · <a href="/en/legal/">Legal notice</a> · <a href="/en/privacy/">Privacy</a></footer>
+<footer class="foot">© 2026 Nacho Spínola · All rights reserved · <a href="/en/legal/">Legal notice</a> · <a href="/en/privacy/">Privacy</a> · <a href="#" class="ck-open">Cookies</a></footer>
 <a class="to-top" href="#" aria-label="Back to top">↑</a>
 <script>(function(){var b=document.querySelector(".to-top");if(!b||b.dataset.on)return;b.dataset.on=1;var body=document.body,calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* en las páginas de proyecto va justo encima de la línea de "Anterior · Siguiente" (pedido por Nacho), no en la esquina */var pn=document.querySelector("nav.pn");if(pn){pn.appendChild(b);b.classList.add("inflow");
@@ -41,6 +40,17 @@ function chk(){var h=document.documentElement.scrollHeight,y=scrollY+innerHeight
 addEventListener("scroll",chk,{passive:true});addEventListener("resize",chk);chk();
 b.addEventListener("click",function(e){e.preventDefault();if(calm){scrollTo(0,0);return}var hh=document.documentElement,s0=scrollY,T0=Math.min(1400,Math.max(700,s0/6)),t0=null;hh.style.scrollBehavior="auto";
 function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/T0,1),e2=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;scrollTo(0,s0*(1-e2));if(p<1)requestAnimationFrame(step);else hh.style.scrollBehavior=""}requestAnimationFrame(step)})})()</script>
+<div class="ck" role="dialog" aria-live="polite" aria-label="Cookies" hidden>
+  <p>I use Google Analytics cookies to know how many people visit the site. They are only turned on if you accept. <a href="/en/privacy/#cookies">More information</a></p>
+  <div class="ck-b"><button type="button" data-ck="no">Reject</button><button type="button" data-ck="si">Accept</button></div>
+</div>
+<script>(function(){var K="nacho-cookies",ID="G-76BY8JZNS6",box=document.querySelector(".ck");if(!box||box.dataset.on)return;box.dataset.on=1;
+function get(){try{return localStorage.getItem(K)}catch(e){return null}}function put(v){try{localStorage.setItem(K,v)}catch(e){}}
+function ga(){if(window.__ga)return;window.__ga=1;var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",ID)}
+function clear(){document.cookie.split(";").forEach(function(c){var n=c.split("=")[0].trim();if(/^_ga/.test(n)){["",location.hostname,"."+location.hostname.replace(/^www\./,"")].forEach(function(d){document.cookie=n+"=; Max-Age=0; path=/"+(d?"; domain="+d:"")})}})}
+var v=get();if(v==="si")ga();else if(v!=="no")box.hidden=false;
+box.addEventListener("click",function(e){var b=e.target.closest("[data-ck]");if(!b)return;var c=b.dataset.ck;put(c);box.hidden=true;if(c==="si")ga();else if(window.__ga){clear();location.reload()}else clear()});
+document.querySelectorAll(".ck-open").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();box.hidden=false})})})()</script>
 </main>
 </div>
 </body>

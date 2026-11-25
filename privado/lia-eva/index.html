@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Lía & Eva — Nacho Spínola</title>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Camarita — Nacho Spínola</title>
 <style>
 @font-face{font-family:"Inter Tight";src:url("/assets/fonts/inter-tight-400.woff2") format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Inter Tight";src:url("/assets/fonts/inter-tight-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
@@ -70,17 +70,17 @@ body.video main .grid{display:none}
 </style></head><body>
 <div id="gate">
   <form autocomplete="off">
-    <div class="brand"><a href="/es/photo/lia-eva/" data-back>Nacho Spínola</a><small>Lía & Eva</small></div>
+    <div class="brand"><a href="/photo/lia-eva/" data-back>Nacho Spínola</a><small>Camarita</small></div>
     <label for="pw" data-t="pw">Contraseña</label>
     <input id="pw" type="password" autocomplete="current-password" autocapitalize="off" spellcheck="false" required>
     <p class="err" role="alert"></p>
     <button class="btn" type="submit" data-t="enter">Entrar</button>
-    <a class="back" href="/es/photo/lia-eva/" data-back data-t="back">← Volver al proyecto</a>
+    <a class="back" href="/photo/lia-eva/" data-back data-t="back">← Volver al proyecto</a>
   </form>
 </div>
 <div id="app" hidden>
 <header class="top">
-  <div class="brand"><a href="/es/photo/lia-eva/" data-back>Nacho Spínola</a><small>Lía & Eva · <span data-t="all">Todas las fotos</span></small></div>
+  <div class="brand"><a href="/photo/lia-eva/" data-back>Nacho Spínola</a><small>Camarita · <span data-t="all">Todas las fotos</span></small></div>
   <div class="acts"><button class="btn" id="dla"></button><a class="btn" id="tog" href="#bn"></a></div>
 </header>
 <main><div class="grid"></div></main>
@@ -88,13 +88,13 @@ body.video main .grid{display:none}
 <div id="lb"><button class="x" data-t="close">Cerrar ✕</button><div class="st"><div class="sd p"><img alt=""></div><div class="mid"><img alt=""></div><div class="sd n"><img alt=""></div></div><div class="bar"><span class="count"></span><button class="btn" id="lbd" data-t="dl">Descargar</button></div></div>
 <script>
 (function(){
-var SALT="tIQOvy6O7xszCqXCdmBX+w==",ITER=250000,SLUG="lia-eva",SK="ng-lia-eva";
+var SALT="tIQOvy6O7xszCqXCdmBX+w==",ITER=250000,SLUG="camarita",SK="ng-lia-eva";
 var EN=/[?&]en\b/.test(location.search);
 var L=EN?{pw:"Password",enter:"Enter",back:"← Back to the project",all:"All photos",close:"Close ✕",dl:"Download",bad:"Wrong password.",wait:"Checking…",dla:"Download all",bn:"Black and white",col:"Colour",prep:"Preparing",nosec:"This page needs a secure connection (https).",video:"Video",photos:"Photos",vdl:"Download the video",vhow:"How to download it",v1:"Press «Download the video».",v2:"On a computer it is saved in your Downloads folder.",v3:"On a phone, the browser asks whether you want to download it: accept. On iPhone you will find it in the Files app › Downloads, and from there you can save it to Photos."}
         :{pw:"Contraseña",enter:"Entrar",back:"← Volver al proyecto",all:"Todas las fotos",close:"Cerrar ✕",dl:"Descargar",bad:"Contraseña incorrecta.",wait:"Comprobando…",dla:"Descargar todas",bn:"Blanco y negro",col:"Color",prep:"Preparando",nosec:"Esta página necesita una conexión segura (https).",video:"Vídeo",photos:"Fotos",vdl:"Descargar el vídeo",vhow:"Cómo descargarlo",v1:"Pulsa el botón «Descargar el vídeo».",v2:"En el ordenador se guarda en la carpeta Descargas.",v3:"En el móvil, el navegador te pregunta si quieres descargarlo: acepta. En iPhone lo encontrarás en la app Archivos › Descargas, y desde ahí puedes guardarlo en Fotos."};
 document.documentElement.lang=EN?"en":"es";
 [].forEach.call(document.querySelectorAll("[data-t]"),function(e){e.textContent=L[e.dataset.t]});
-if(EN)[].forEach.call(document.querySelectorAll("[data-back]"),function(a){a.href=a.getAttribute("href").replace("/es/","/en/")});
+if(EN)[].forEach.call(document.querySelectorAll("[data-back]"),function(a){a.href="/en"+a.getAttribute("href")});
 var gate=document.getElementById("gate"),app=document.getElementById("app"),err=gate.querySelector(".err"),lb=document.getElementById("lb");
 var key=null,sets={c:[],b:[]},items=[],cells=[],cur=0,cache={},shown="",io=null;
 function b64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u}
